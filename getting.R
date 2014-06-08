@@ -6,6 +6,6 @@ unlink(temp)
 library(data.table)
 hpc <- read.table(file="household_power_consumption.txt", sep=";", na.strings="?", header=TRUE)
 hpc$Date <- as.Date(strptime(hpc$Date, format="%d/%m/%Y"))
-hpc$dt <- strptime(paste(hpc$Date, hpc$Time), format="%Y-%m-%d %H:%M:%S")
+hpc$datetime <- strptime(paste(hpc$Date, hpc$Time), format="%Y-%m-%d %H:%M:%S")
 hpc <- hpc[hpc$Date >= '2007-02-01', ]
 hpc <- hpc[hpc$Date < '2007-02-03', ]
